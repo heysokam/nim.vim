@@ -61,7 +61,7 @@ syn keyword nimRepeat        for while
 syn keyword nimConditional   if elif else case of
 syn keyword nimOperator      and or not xor shl shr div mod in notin is isnot of as from
 syn match   nimOperator      "[.][.]*"
-syn match   nimOperator      "[-=+*/<>@$~&%|!?^.\\]*"
+syn match   nimOperator      "[-+/<>@$~&%|!?^\\]*"
 syn match   nimOperator      "[∙∘×★⊗⊘⊙⊛⊠⊡∩∧⊓]" " same priority as * (multiplication)
 syn match   nimOperator      "[±⊕⊖⊞⊟∪∨⊔]"      " same priority as + (addition)
 syn match   nimComment       "#.*$" contains=nimTodo,@Spell
@@ -69,8 +69,7 @@ syn region  nimComment       start="#\[" end="\]#" contains=nimTodo,@Spell
 syn keyword nimTodo          TODO FIXME XXX contained
 syn keyword nimBoolean       true false
 syn match   nimConstant      '[{}\[\]()]'
-syn match   nimPreCondit     '\*[(]'
-syn match   nimRepeat        '\.\k\+'
+syn match   nimRepeat        '(?:\.)\w\+(?:[\(])'
 syn match   nimPreCondit     '{\.\|\.}'
 
 " Strings
