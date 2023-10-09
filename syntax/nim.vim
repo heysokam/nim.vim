@@ -43,17 +43,18 @@ syn keyword nimKeyword       generic
 syn keyword nimKeyword       if import in include interface is isnot iterator
 syn keyword nimKeyword       let
 syn keyword nimKeyword       mixin using mod
-syn keyword nimKeyword       nil not notin
-syn keyword nimKeyword       object of or out
+syn keyword nimKeyword       not notin
+syn keyword nimKeyword       object of out
 syn keyword nimKeyword       proc func method macro template iterator converter nextgroup=nimFunction skipwhite
 syn keyword nimKeyword       ptr
 syn keyword nimKeyword       raise ref return
-syn keyword nimKeyword       shared shl shr static
+syn keyword nimKeyword       shared static
 syn keyword nimKeyword       try tuple type
 syn keyword nimKeyword       var vtref vtptr
 syn keyword nimKeyword       when while with without
 syn keyword nimKeyword       xor
 syn keyword nimKeyword       yield
+syn keyword nimBuiltin       nil
 
 syn match   nimFunction      "[a-zA-Z_][a-zA-Z0-9_]*\|`.*`" contained
 syn match   nimClass         "[a-zA-Z_][a-zA-Z0-9_]*\|`.*`" contained
@@ -139,7 +140,8 @@ if nim_highlight_builtins == 1
   syn keyword nimKeyword passC passL link importc importcpp importjs cdecl
   syn match   nimKeyword "compile:"
   syn match   nimKeyword "header:"
-  syn keyword nimKeyword async await typeof align
+  syn match   nimKeyword "size:"
+  syn keyword nimKeyword async await typeof align pure
   " Custom types
   syn keyword nimBuiltin i8 i16 i32 i64 u8 u16 u32 u64 f32 f64 Sz
   " MinC specials
