@@ -164,8 +164,8 @@ if nim_highlight_exceptions == 1
   syn keyword nimException EFloatInexact EDeadThread EResourceExhausted
   syn keyword nimException EFloatUnderflow
   syn keyword nimException Exception CatchableError
-  syn match   nimException "[\w]*Error\>"
-  syn match   nimException "[\w]*Defect\>"
+  syn match   nimException '[A-Z]\w*Error\>'
+  syn match   nimException '[A-Z]\w*Defect\>'
 endif
 
 if nim_highlight_space_errors == 1
