@@ -34,8 +34,8 @@ endif
 syn region nimBrackets       contained extend keepend matchgroup=Bold start=+\(\\\)\@<!\[+ end=+]\|$+ skip=+\\\s*$\|\(\\\)\@<!\\]+ contains=@tclCommandCluster
 
 syn keyword nimKeyword       addr and as asm atomic
-syn keyword nimKeyword       bind block break
-syn keyword nimKeyword       case cast concept const continue converter
+syn keyword nimKeyword       bind block
+syn keyword nimKeyword       case cast concept converter
 syn keyword nimKeyword       defer discard distinct div do
 syn keyword nimKeyword       elif else end enum except export
 syn keyword nimKeyword       finally for from
@@ -47,21 +47,25 @@ syn keyword nimKeyword       not notin
 syn keyword nimKeyword       object out
 syn keyword nimKeyword       proc func method macro template iterator converter nextgroup=nimFunction skipwhite
 syn keyword nimKeyword       ptr
-syn keyword nimKeyword       raise ref return
+syn keyword nimKeyword       raise ref
 syn keyword nimKeyword       shared static
-syn keyword nimKeyword       try tuple type
+syn keyword nimKeyword       try tuple
 syn keyword nimKeyword       var vtref vtptr
 syn keyword nimKeyword       when while with without
 syn keyword nimKeyword       xor
 syn keyword nimKeyword       yield
-syn keyword nimBuiltin       nil
+" Orange specific highlight
+syn keyword nimBuiltin       nil result
+" Pink specific highlight
+syn keyword nimOperator      const let type break continue return
 
 syn match   nimFunction      "[a-zA-Z_][a-zA-Z0-9_]*\|`.*`" contained
 syn match   nimClass         "[a-zA-Z_][a-zA-Z0-9_]*\|`.*`" contained
 syn keyword nimRepeat        for while
 syn keyword nimConditional   if elif else case of
 syn keyword nimOperator      and or not xor shl shr div mod in notin is isnot as
-syn match   nimOperator      "[.][.]*"
+syn match   nimOperator      +[.][.]+
+syn match   nimOperator      +[-=+/<>@$~&%|!?^\\]*[=]+
 syn match   nimOperator      "[-+/<>@$~&%|!?^\\]*"
 syn match   nimOperator      "[∙∘×★⊗⊘⊙⊛⊠⊡∩∧⊓]" " same priority as * (multiplication)
 syn match   nimOperator      "[±⊕⊖⊞⊟∪∨⊔]"      " same priority as + (addition)
@@ -70,11 +74,12 @@ syn region  nimComment       start="#\[" end="\]#" contains=nimTodo,@Spell
 syn keyword nimTodo          TODO FIXME XXX contained
 syn keyword nimBoolean       true false
 syn match   nimConstant      '[{}\[\]()]'
+syn match   nimPreCondit     '{\.\|\.}'
+syn match   nimRepeat        '\.\k\+'
 " syn match   nimRepeat        '\(?:[a-zA-Z]*\.\)\k\+'
 " syn match   nimEscape        "[a-zA-Z]\w*\s\?("
 " syn region  nimEscape        start=+\k\+(+ skip=+[\w]*+ end=+)+ contains=nimBuiltin,nimKeyword,nimString,nimRawString,nimBoolean,nimOperator
 " syn match   nimEscape        "\w*[\(](\s+\n?\w*\s?)[\)]\n?" " TODO
-syn match   nimPreCondit     '{\.\|\.}'
 
 " Strings
 syn region nimString start=+'+ skip=+\\\\\|\\'\|\\$+ excludenl end=+'+ end=+$+ keepend contains=nimEscape,nimEscapeError,@Spell
@@ -172,7 +177,7 @@ if nim_highlight_space_errors == 1
 endif
 
 if nim_highlight_special_vars
-  syn keyword nimSpecialVar result
+  " syn keyword nimSpecialVar result
 endif
 
 syn sync match nimSync grouphere NONE "):$"
@@ -192,12 +197,13 @@ if v:version >= 508 || !exists('did_nim_syn_inits')
   HiLink nimKeyword     Keyword
   HiLink nimFunction    Function
   HiLink nimConditional Conditional
-  HiLink nimRepeat      Repeat
+  HiLink nimRepeat      Decorator
   HiLink nimString      String
   HiLink nimRawString   String
   HiLink nimBoolean     Boolean
   HiLink nimEscape      Special
-  HiLink nimOperator    Operator
+  " HiLink nimOperator    Operator
+  HiLink nimOperator    Repeat
   HiLink nimPreCondit   PreCondit
   HiLink nimComment     Comment
   HiLink nimTodo        Todo
