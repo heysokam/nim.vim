@@ -45,7 +45,7 @@ syn keyword nimKeyword       let
 syn keyword nimKeyword       mixin using mod
 syn keyword nimKeyword       nil not notin
 syn keyword nimKeyword       object of or out
-syn keyword nimKeyword       proc func method macro template nextgroup=nimFunction skipwhite
+syn keyword nimKeyword       proc func method macro template iterator converter nextgroup=nimFunction skipwhite
 syn keyword nimKeyword       ptr
 syn keyword nimKeyword       raise ref return
 syn keyword nimKeyword       shared shl shr static
@@ -55,16 +55,23 @@ syn keyword nimKeyword       when while with without
 syn keyword nimKeyword       xor
 syn keyword nimKeyword       yield
 
-syn match   nimFunction      "[a-zA-Z_][a-zA-Z0-9_]*" contained
-syn match   nimClass         "[a-zA-Z_][a-zA-Z0-9_]*" contained
+syn match   nimFunction      "[a-zA-Z_][a-zA-Z0-9_]*\|`.*`" contained
+syn match   nimClass         "[a-zA-Z_][a-zA-Z0-9_]*\|`.*`" contained
 syn keyword nimRepeat        for while
 syn keyword nimConditional   if elif else case of
-syn keyword nimOperator      and in is not or xor shl shr div
+syn keyword nimOperator      and or not xor shl shr div mod in notin is isnot of as from
+syn match   nimOperator      "[.][.]*"
+syn match   nimOperator      "[-=+*/<>@$~&%|!?^.\\]*"
+syn match   nimOperator      "[∙∘×★⊗⊘⊙⊛⊠⊡∩∧⊓]" " same priority as * (multiplication)
+syn match   nimOperator      "[±⊕⊖⊞⊟∪∨⊔]"      " same priority as + (addition)
 syn match   nimComment       "#.*$" contains=nimTodo,@Spell
 syn region  nimComment       start="#\[" end="\]#" contains=nimTodo,@Spell
 syn keyword nimTodo          TODO FIXME XXX contained
 syn keyword nimBoolean       true false
-
+syn match   nimConstant      '[{}\[\]()]'
+syn match   SpecialComment   '[,`\:]\|\.\{2,}<\?'
+syn match   nimRepeat        '\.\k\+'
+syn match   nimPreCondit     '{\.\|\.}'
 
 " Strings
 syn region nimString start=+'+ skip=+\\\\\|\\'\|\\$+ excludenl end=+'+ end=+$+ keepend contains=nimEscape,nimEscapeError,@Spell
@@ -113,18 +120,31 @@ if nim_highlight_builtins == 1
   syn keyword nimBuiltin copy setlen setLen newstring newString zeromem zeroMem copymem copyMem movemem moveMem
   syn keyword nimBuiltin equalmem equalMem alloc alloc0 realloc dealloc assert
   syn keyword nimBuiltin typedesc typed untyped stmt expr
-  syn keyword nimBuiltin echo swap getrefcount getRefcount getcurrentexception getCurrentException Msg
+  syn keyword nimBuiltin echo swap getrefcount getRefcount getcurrentexception getCurrentExceptionMsg
   syn keyword nimBuiltin getoccupiedmem getOccupiedMem getfreemem getFreeMem gettotalmem getTotalMem isnil isNil seqtoptr seqToPtr
-  syn keyword nimBuiltin find pop GC_disable GC_enable GC_fullCollect
+  syn keyword nimBuiltin find push pop GC_disable GC_enable GC_fullCollect
   syn keyword nimBuiltin GC_setStrategy GC_enableMarkAndSweep GC_Strategy
-  syn keyword nimBuiltin GC_disableMarkAnd Sweep GC_getStatistics GC_ref
-  syn keyword nimBuiltin GC_ref GC_ref GC_unref GC_unref GC_unref quit
+  syn keyword nimBuiltin GC_disableMarkAndSweep GC_getStatistics
+  syn keyword nimBuiltin GC_ref GC_unref quit
   syn keyword nimBuiltin OpenFile OpenFile CloseFile EndOfFile readChar
   syn keyword nimBuiltin FlushFile readfile readFile readline readLine write writeln writeLn writeline writeLine
   syn keyword nimBuiltin getfilesize getFileSize ReadBytes ReadChars readbuffer readBuffer writebytes writeBytes
   syn keyword nimBuiltin writechars writeChars writebuffer writeBuffer setfilepos setFilePos getfilepos getFilePos
   syn keyword nimBuiltin filehandle fileHandle countdown countup items lines
   syn keyword nimBuiltin FileMode File RootObj FileHandle ByteAddress Endianness
+  " New (missing from og)
+  syn keyword nimBuiltin byte any auto csize_t cstringArray
+  syn keyword nimBuiltin newSeqWith newSeqOfCap newStringOfCap
+  syn keyword nimBuiltin define pragma threadvar compiletime
+  syn keyword nimBuiltin passC passL link importc importcpp importjs cdecl
+  syn match   nimBuiltin "compile:"
+  syn match   nimBuiltin "header:"
+  syn keyword nimKeyword async await typeof
+  " Custom types
+  syn keyword nimBuiltin i8 i16 i32 i64 u8 u16 u32 u64 f32 f64 Sz
+  " MinC specials
+  " syn keyword nimBuiltin int8_t int16_t int32_t int64_t uint8_t uint16_t uint32_t uint64_t
+  syn keyword nimBuiltin comptime namespace stub readonly
 endif
 
 if nim_highlight_exceptions == 1
@@ -140,6 +160,9 @@ if nim_highlight_exceptions == 1
   syn keyword nimException EFloatInvalidOp EFloatDivByZero EFloatOverflow
   syn keyword nimException EFloatInexact EDeadThread EResourceExhausted
   syn keyword nimException EFloatUnderflow
+  syn keyword nimException Exception CatchableError
+  syn match   nimException "Error\>" contained
+  syn match   nimException "Defect\>" contained
 endif
 
 if nim_highlight_space_errors == 1
@@ -166,34 +189,43 @@ if v:version >= 508 || !exists('did_nim_syn_inits')
   endif
 
   " The default methods for highlighting.  Can be overridden later
-  HiLink nimBrackets       Operator
-  HiLink nimKeyword	      Keyword
-  HiLink nimFunction	    	Function
-  HiLink nimConditional	  Conditional
-  HiLink nimRepeat		      Repeat
-  HiLink nimString		      String
-  HiLink nimRawString	    String
-  HiLink nimBoolean        Boolean
-  HiLink nimEscape		      Special
-  HiLink nimOperator		    Operator
-  HiLink nimPreCondit	    PreCondit
-  HiLink nimComment		    Comment
-  HiLink nimTodo		        Todo
-  HiLink nimDecorator	    Define
-  HiLink nimSpecialVar	    Identifier
-  
+  HiLink nimBrackets    Operator
+  HiLink nimKeyword     Keyword
+  HiLink nimFunction    Function
+  HiLink nimConditional Conditional
+  HiLink nimRepeat      Repeat
+  HiLink nimString      String
+  HiLink nimRawString   String
+  HiLink nimBoolean     Boolean
+  HiLink nimEscape      Special
+  HiLink nimOperator    Operator
+  HiLink nimPreCondit   PreCondit
+  HiLink nimComment     Comment
+  HiLink nimTodo        Todo
+  HiLink nimDecorator   Define
+  HiLink nimSpecialVar  Identifier
+  " New
+  HiLink nimStatement   Statement
+  HiLink nimConstant    Constant
+  HiLink nimInclude     Include
+  HiLink nimStructure   Structure
+  HiLink nimMacro       Macro
+  HiLink nimCharacter   Character
+  HiLink nimFloat       Float
+  HiLink nimPragma      PreProc
+
   if nim_highlight_numbers == 1
     HiLink nimNumber	Number
   endif
-  
+
   if nim_highlight_builtins == 1
     HiLink nimBuiltin	Number
   endif
-  
+
   if nim_highlight_exceptions == 1
     HiLink nimException	Exception
   endif
-  
+
   if nim_highlight_space_errors == 1
     HiLink nimSpaceError	Error
   endif
