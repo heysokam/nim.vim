@@ -51,13 +51,14 @@ syn keyword nimKeyword       proc func method macro template iterator converter 
 syn keyword nimKeyword       raise ref
 syn keyword nimKeyword       shared
 syn keyword nimKeyword       try tuple
-syn keyword nimKeyword       var vtref vtptr
+syn keyword nimKeyword       vtref vtptr
 syn keyword nimKeyword       yield
 syn keyword nimKeyword       when with without for while
+syn keyword nimKeyword       let const
 " Orange specific highlight
 syn keyword nimBuiltin       nil result
 " Pink specific highlight
-syn keyword nimOperator      const let type break continue return
+syn keyword nimOperator      var type break continue return
 " Unsafe specific highlight
 syn keyword nimException     static include ptr cast equalmem equalMem alloc alloc0 realloc dealloc zeromem zeroMem copymem copyMem movemem moveMem
 
