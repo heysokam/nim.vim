@@ -70,7 +70,7 @@ syn region  nimComment       start="#\[" end="\]#" contains=nimTodo,@Spell
 syn keyword nimTodo          TODO FIXME XXX contained
 syn keyword nimBoolean       true false
 syn match   nimConstant      '[{}\[\]()]'
-syn region  nimEscape        start=+\k\+(+ skip=+\s?\k?\s?\,?\s?+ end=+)+ keepend
+syn region  nimEscape        start=+\k\+(+ skip=+[\w]*+ end=+)+ contains=nimBuiltin,nimKeyword,nimString,nimRawString,nimBoolean,nimOperator
 syn match   nimEscape        "\w*[\(](\s+\n?\w*\s?)[\)]\n?" " TODO
 syn match   nimPreCondit     '{\.\|\.}'
 
