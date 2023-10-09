@@ -73,7 +73,7 @@ syn match   nimConstant      '[{}\[\]()]'
 " syn match   nimRepeat        '\(?:[a-zA-Z]*\.\)\k\+'
 " syn match   nimEscape        "[a-zA-Z]\w*\s\?("
 " syn region  nimEscape        start=+\k\+(+ skip=+[\w]*+ end=+)+ contains=nimBuiltin,nimKeyword,nimString,nimRawString,nimBoolean,nimOperator
-syn match   nimEscape        "\w*[\(](\s+\n?\w*\s?)[\)]\n?" " TODO
+" syn match   nimEscape        "\w*[\(](\s+\n?\w*\s?)[\)]\n?" " TODO
 syn match   nimPreCondit     '{\.\|\.}'
 
 " Strings
