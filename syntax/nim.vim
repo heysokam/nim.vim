@@ -59,7 +59,7 @@ syn match   nimFunction      "[a-zA-Z_][a-zA-Z0-9_]*\|`.*`" contained
 syn match   nimClass         "[a-zA-Z_][a-zA-Z0-9_]*\|`.*`" contained
 syn keyword nimRepeat        for while
 syn keyword nimConditional   if elif else case of
-syn keyword nimOperator      and or not xor shl shr div mod in notin is isnot of as from
+syn keyword nimOperator      and or not xor shl shr div mod in notin is isnot of as
 syn match   nimOperator      "[.][.]*"
 syn match   nimOperator      "[-+/<>@$~&%|!?^\\]*"
 syn match   nimOperator      "[∙∘×★⊗⊘⊙⊛⊠⊡∩∧⊓]" " same priority as * (multiplication)
@@ -161,8 +161,8 @@ if nim_highlight_exceptions == 1
   syn keyword nimException EFloatInexact EDeadThread EResourceExhausted
   syn keyword nimException EFloatUnderflow
   syn keyword nimException Exception CatchableError
-  syn match   nimException "Error\>" contained
-  syn match   nimException "Defect\>" contained
+  syn match   nimException "[\w]*Error\>"
+  syn match   nimException "[\w]*Defect\>"
 endif
 
 if nim_highlight_space_errors == 1
