@@ -44,7 +44,7 @@ syn keyword nimKeyword       if import in include interface is isnot iterator
 syn keyword nimKeyword       let
 syn keyword nimKeyword       mixin using mod
 syn keyword nimKeyword       not notin
-syn keyword nimKeyword       object of out
+syn keyword nimKeyword       object out
 syn keyword nimKeyword       proc func method macro template iterator converter nextgroup=nimFunction skipwhite
 syn keyword nimKeyword       ptr
 syn keyword nimKeyword       raise ref return
@@ -60,7 +60,7 @@ syn match   nimFunction      "[a-zA-Z_][a-zA-Z0-9_]*\|`.*`" contained
 syn match   nimClass         "[a-zA-Z_][a-zA-Z0-9_]*\|`.*`" contained
 syn keyword nimRepeat        for while
 syn keyword nimConditional   if elif else case of
-syn keyword nimOperator      and or not xor shl shr div mod in notin is isnot of as
+syn keyword nimOperator      and or not xor shl shr div mod in notin is isnot as
 syn match   nimOperator      "[.][.]*"
 syn match   nimOperator      "[-+/<>@$~&%|!?^\\]*"
 syn match   nimOperator      "[∙∘×★⊗⊘⊙⊛⊠⊡∩∧⊓]" " same priority as * (multiplication)
