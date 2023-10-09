@@ -155,7 +155,8 @@ if nim_highlight_builtins == 1
   " Custom types
   syn keyword nimBuiltin i8 i16 i32 i64 u8 u16 u32 u64 f32 f64 Sz str cstr
   " MinC specials
-  syn keyword nimKeyword comptime namespace stub readonly noreturn
+  syn keyword nimKeyword   comptime namespace stub readonly noreturn
+  syn keyword nimException calloc malloc free resize
 endif
 
 if nim_highlight_exceptions == 1
@@ -206,7 +207,6 @@ if v:version >= 508 || !exists('did_nim_syn_inits')
   HiLink nimBoolean     Boolean
   HiLink nimEscape      Special
   " HiLink nimOperator    Operator
-  HiLink nimType        Keyword
   HiLink nimOperator    Repeat
   HiLink nimPreCondit   PreCondit
   HiLink nimComment     Comment
@@ -222,6 +222,7 @@ if v:version >= 508 || !exists('did_nim_syn_inits')
   HiLink nimCharacter   Character
   HiLink nimFloat       Float
   HiLink nimPragma      PreProc
+  HiLink nimType        Keyword
 
   if nim_highlight_numbers == 1
     HiLink nimNumber	Number
