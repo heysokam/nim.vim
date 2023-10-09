@@ -135,10 +135,10 @@ if nim_highlight_builtins == 1
   " New (missing from og)
   syn keyword nimBuiltin byte any auto csize_t cstringArray
   syn keyword nimBuiltin newSeqWith newSeqOfCap newStringOfCap
-  syn keyword nimBuiltin define pragma threadvar compiletime
-  syn keyword nimBuiltin passC passL link importc importcpp importjs cdecl
-  syn match   nimBuiltin "compile:"
-  syn match   nimBuiltin "header:"
+  syn keyword nimKeyword define pragma threadvar compiletime
+  syn keyword nimKeyword passC passL link importc importcpp importjs cdecl
+  syn match   nimKeyword "compile:"
+  syn match   nimKeyword "header:"
   syn keyword nimKeyword async await typeof align
   " Custom types
   syn keyword nimBuiltin i8 i16 i32 i64 u8 u16 u32 u64 f32 f64 Sz
