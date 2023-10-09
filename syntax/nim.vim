@@ -47,7 +47,7 @@ syn keyword nimKeyword       not notin
 syn keyword nimKeyword       object out
 syn keyword nimKeyword       proc func method macro template iterator converter nextgroup=nimFunction skipwhite
 syn keyword nimKeyword       raise ref
-syn keyword nimKeyword       shared static
+syn keyword nimKeyword       shared
 syn keyword nimKeyword       try tuple
 syn keyword nimKeyword       var vtref vtptr
 syn keyword nimKeyword       when while with without
@@ -58,7 +58,7 @@ syn keyword nimBuiltin       nil result
 " Pink specific highlight
 syn keyword nimOperator      const let type break continue return
 " Unsafe specific highlight
-syn keyword nimException     include ptr cast equalmem equalMem alloc alloc0 realloc dealloc zeromem zeroMem copymem copyMem movemem moveMem
+syn keyword nimException     static include ptr cast equalmem equalMem alloc alloc0 realloc dealloc zeromem zeroMem copymem copyMem movemem moveMem
 
 syn match   nimFunction      "[a-zA-Z_][a-zA-Z0-9_]*\|`.*`" contained
 syn match   nimClass         "[a-zA-Z_][a-zA-Z0-9_]*\|`.*`" contained
