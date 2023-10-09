@@ -35,7 +35,7 @@ syn region nimBrackets       contained extend keepend matchgroup=Bold start=+\(\
 
 syn keyword nimKeyword       addr and as asm atomic
 syn keyword nimKeyword       bind block
-syn keyword nimKeyword       case cast concept converter
+syn keyword nimKeyword       case concept converter
 syn keyword nimKeyword       defer discard distinct div do
 syn keyword nimKeyword       elif else end enum except export
 syn keyword nimKeyword       finally for from
@@ -46,7 +46,6 @@ syn keyword nimKeyword       mixin using mod
 syn keyword nimKeyword       not notin
 syn keyword nimKeyword       object out
 syn keyword nimKeyword       proc func method macro template iterator converter nextgroup=nimFunction skipwhite
-syn keyword nimKeyword       ptr
 syn keyword nimKeyword       raise ref
 syn keyword nimKeyword       shared static
 syn keyword nimKeyword       try tuple
@@ -58,8 +57,8 @@ syn keyword nimKeyword       yield
 syn keyword nimBuiltin       nil result
 " Pink specific highlight
 syn keyword nimOperator      const let type break continue return
-" Purple specific highlight
-syn keyword nimException     include
+" Unsafe specific highlight
+syn keyword nimException     include ptr cast equalmem equalMem alloc alloc0 realloc dealloc zeromem zeroMem copymem copyMem movemem moveMem
 
 syn match   nimFunction      "[a-zA-Z_][a-zA-Z0-9_]*\|`.*`" contained
 syn match   nimClass         "[a-zA-Z_][a-zA-Z0-9_]*\|`.*`" contained
@@ -127,8 +126,8 @@ if nim_highlight_builtins == 1
   syn match   nimBuiltin "\<contains\>"
   syn keyword nimBuiltin tofloat toFloat tobiggestfloat toBiggestFloat toint toInt tobiggestint toBiggestInt
   syn keyword nimBuiltin addquitproc addQuitProc
-  syn keyword nimBuiltin copy setlen setLen newstring newString zeromem zeroMem copymem copyMem movemem moveMem
-  syn keyword nimBuiltin equalmem equalMem alloc alloc0 realloc dealloc assert
+  syn keyword nimBuiltin copy setlen setLen newstring newString
+  syn keyword nimBuiltin assert
   syn keyword nimBuiltin typedesc typed untyped stmt expr
   syn keyword nimBuiltin echo swap getrefcount getRefcount getcurrentexception getCurrentExceptionMsg
   syn keyword nimBuiltin getoccupiedmem getOccupiedMem getfreemem getFreeMem gettotalmem getTotalMem isnil isNil seqtoptr seqToPtr
