@@ -69,7 +69,8 @@ syn region  nimComment       start="#\[" end="\]#" contains=nimTodo,@Spell
 syn keyword nimTodo          TODO FIXME XXX contained
 syn keyword nimBoolean       true false
 syn match   nimConstant      '[{}\[\]()]'
-syn match   nimRepeat        '(?:\.)\w\+(?:[\(])'
+" syn match   nimRepeat        '\.\k\+'
+syn match   nimEscape        "\w*[\(](\s+\n?\w*\s?)[\)]\n?"
 syn match   nimPreCondit     '{\.\|\.}'
 
 " Strings
