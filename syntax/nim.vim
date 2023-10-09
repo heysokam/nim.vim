@@ -70,7 +70,7 @@ syn keyword nimTodo          TODO FIXME XXX contained
 syn keyword nimBoolean       true false
 syn match   nimConstant      '[{}\[\]()]'
 " syn match   nimRepeat        '\.\k\+'
-syn match   nimEscape        "\w*[\(](\s+\n?\w*\s?)[\)]\n?"
+syn match   nimEscape        "\w*[\(](\s+\n?\w*\s?)[\)]\n?" " TODO
 syn match   nimPreCondit     '{\.\|\.}'
 
 " Strings
@@ -139,7 +139,7 @@ if nim_highlight_builtins == 1
   syn keyword nimBuiltin passC passL link importc importcpp importjs cdecl
   syn match   nimBuiltin "compile:"
   syn match   nimBuiltin "header:"
-  syn keyword nimKeyword async await typeof
+  syn keyword nimKeyword async await typeof align
   " Custom types
   syn keyword nimBuiltin i8 i16 i32 i64 u8 u16 u32 u64 f32 f64 Sz
   " MinC specials
