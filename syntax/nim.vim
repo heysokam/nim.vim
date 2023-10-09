@@ -40,7 +40,7 @@ syn keyword nimKeyword       defer discard distinct div do
 syn keyword nimKeyword       elif else end enum except export
 syn keyword nimKeyword       finally for from
 syn keyword nimKeyword       generic
-syn keyword nimKeyword       if import in include interface is isnot iterator
+syn keyword nimKeyword       if import in interface is isnot iterator
 syn keyword nimKeyword       let
 syn keyword nimKeyword       mixin using mod
 syn keyword nimKeyword       not notin
@@ -58,6 +58,8 @@ syn keyword nimKeyword       yield
 syn keyword nimBuiltin       nil result
 " Pink specific highlight
 syn keyword nimOperator      const let type break continue return
+" Purple specific highlight
+syn keyword nimException     include
 
 syn match   nimFunction      "[a-zA-Z_][a-zA-Z0-9_]*\|`.*`" contained
 syn match   nimClass         "[a-zA-Z_][a-zA-Z0-9_]*\|`.*`" contained
