@@ -151,19 +151,15 @@ if nim_highlight_builtins == 1
 endif
 
 if nim_highlight_exceptions == 1
-  " builtin exceptions and warnings
-  syn keyword nimException E_Base EAsynch ESynch ESystem EIO EOS
-  syn keyword nimException ERessourceExhausted EArithmetic EDivByZero
-  syn keyword nimException EOverflow EAccessViolation EAssertionFailed
-  syn keyword nimException EControlC EInvalidValue EOutOfMemory EInvalidIndex
-  syn keyword nimException EInvalidField EOutOfRange EStackOverflow
-  syn keyword nimException ENoExceptionToReraise EInvalidObjectAssignment
-  syn keyword nimException EInvalidObject EInvalidLibrary EInvalidKey
-  syn keyword nimException EInvalidObjectConversion EFloatingPoint
-  syn keyword nimException EFloatInvalidOp EFloatDivByZero EFloatOverflow
-  syn keyword nimException EFloatInexact EDeadThread EResourceExhausted
-  syn keyword nimException EFloatUnderflow
-  syn keyword nimException Exception CatchableError
+  " Builtin Defects
+  syn keyword nimBuiltin   Defect ArithmeticDefect DivByZeroDefect OverflowDefect AccessViolationDefect DeadThreadDefect
+  syn keyword nimBuiltin   OutOfMemDefect IndexDefect FieldDefect RangeDefect StackOverflowDefect ReraiseDefect AssertionDefect
+  syn keyword nimBuiltin   ObjectAssignmentDefect ObjectConversionDefect FloatingPointDefect FloatInvalidOpDefect
+  syn keyword nimBuiltin   FloatDivByZeroDefect FloatOverflowDefect FloatUnderflowDefect FloatInexactDefect NilAccessDefect
+  " Builtin Errors
+  syn keyword nimBuiltin   LibraryError ResourceExhaustedError
+  syn keyword nimBuiltin   Exception CatchableError IOError EOFError OSError KeyError ValueError
+  " Any User error possible
   syn match   nimException '[A-Z]\w*Error\>'
   syn match   nimException '[A-Z]\w*Defect\>'
 endif
