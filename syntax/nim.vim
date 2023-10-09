@@ -40,7 +40,7 @@ syn keyword nimKeyword       bind block
 syn keyword nimKeyword       case concept converter
 syn keyword nimKeyword       defer discard distinct div do
 syn keyword nimKeyword       elif else end enum except export
-syn keyword nimKeyword       finally for from
+syn keyword nimKeyword       finally from
 syn keyword nimKeyword       generic
 syn keyword nimKeyword       if import in interface is isnot iterator
 syn keyword nimKeyword       let
@@ -52,9 +52,8 @@ syn keyword nimKeyword       raise ref
 syn keyword nimKeyword       shared
 syn keyword nimKeyword       try tuple
 syn keyword nimKeyword       var vtref vtptr
-syn keyword nimKeyword       when while with without
-syn keyword nimKeyword       xor
 syn keyword nimKeyword       yield
+syn keyword nimKeyword       when with without for while
 " Orange specific highlight
 syn keyword nimBuiltin       nil result
 " Pink specific highlight
@@ -64,7 +63,6 @@ syn keyword nimException     static include ptr cast equalmem equalMem alloc all
 
 syn match   nimFunction      "[a-zA-Z_][a-zA-Z0-9_]*\|`.*`" contained
 syn match   nimClass         "[a-zA-Z_][a-zA-Z0-9_]*\|`.*`" contained
-syn keyword nimRepeat        for while
 syn keyword nimConditional   if elif else case of
 syn keyword nimOperator      and or not xor shl shr div mod in notin is isnot as
 syn match   nimOperator      +[.][.]+
@@ -201,7 +199,7 @@ if v:version >= 508 || !exists('did_nim_syn_inits')
   HiLink nimKeyword     Keyword
   HiLink nimFunction    Function
   HiLink nimConditional Conditional
-  HiLink nimRepeat      Decorator
+  HiLink nimRepeat      Repeat
   HiLink nimString      String
   HiLink nimRawString   String
   HiLink nimBoolean     Boolean
