@@ -33,6 +33,7 @@ endif
 
 syn region nimBrackets       contained extend keepend matchgroup=Bold start=+\(\\\)\@<!\[+ end=+]\|$+ skip=+\\\s*$\|\(\\\)\@<!\\]+ contains=@tclCommandCluster
 
+syn match   nimType          "\<[A-Z]\w*"
 
 syn keyword nimKeyword       addr and as asm atomic
 syn keyword nimKeyword       bind block
@@ -205,6 +206,7 @@ if v:version >= 508 || !exists('did_nim_syn_inits')
   HiLink nimBoolean     Boolean
   HiLink nimEscape      Special
   " HiLink nimOperator    Operator
+  HiLink nimType        Keyword
   HiLink nimOperator    Repeat
   HiLink nimPreCondit   PreCondit
   HiLink nimComment     Comment
