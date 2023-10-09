@@ -33,6 +33,8 @@ endif
 
 syn region nimBrackets       contained extend keepend matchgroup=Bold start=+\(\\\)\@<!\[+ end=+]\|$+ skip=+\\\s*$\|\(\\\)\@<!\\]+ contains=@tclCommandCluster
 
+syn region  nimRepeat        start=/\v\.?\k*\s?\(/ skip='(\s?\k*\s?\n?\s?,?)*' end='\)'
+
 syn keyword nimKeyword       addr and as asm atomic
 syn keyword nimKeyword       bind block
 syn keyword nimKeyword       case concept converter
@@ -76,7 +78,7 @@ syn keyword nimTodo          TODO FIXME XXX contained
 syn keyword nimBoolean       true false
 syn match   nimConstant      '[{}\[\]()]'
 syn match   nimPreCondit     '{\.\|\.}'
-syn match   nimRepeat        '\.\k\+'
+" syn match   nimRepeat        '\.\k\+'
 " syn match   nimRepeat        '\(?:[a-zA-Z]*\.\)\k\+'
 " syn match   nimEscape        "[a-zA-Z]\w*\s\?("
 " syn region  nimEscape        start=+\k\+(+ skip=+[\w]*+ end=+)+ contains=nimBuiltin,nimKeyword,nimString,nimRawString,nimBoolean,nimOperator
