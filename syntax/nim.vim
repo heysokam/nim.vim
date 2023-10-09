@@ -145,10 +145,9 @@ if nim_highlight_builtins == 1
   syn match   nimKeyword "size:"
   syn keyword nimKeyword async await typeof align pure
   " Custom types
-  syn keyword nimBuiltin i8 i16 i32 i64 u8 u16 u32 u64 f32 f64 Sz
+  syn keyword nimBuiltin i8 i16 i32 i64 u8 u16 u32 u64 f32 f64 Sz str cstr
   " MinC specials
-  " syn keyword nimBuiltin int8_t int16_t int32_t int64_t uint8_t uint16_t uint32_t uint64_t
-  syn keyword nimBuiltin comptime namespace stub readonly
+  syn keyword nimKeyword comptime namespace stub readonly noreturn
 endif
 
 if nim_highlight_exceptions == 1

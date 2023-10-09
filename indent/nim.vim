@@ -44,7 +44,7 @@ function! GetNimIndent(lnum)
 
   let pline = getline(plnum)
   let cline = getline(a:lnum)
-  let pline_len = strlen(pline)
+  let pline_len = strlen(pline)+1
   let plindent = indent(plnum)
   let clindent = indent(a:lnum)
 
@@ -104,6 +104,10 @@ function! GetNimIndent(lnum)
     return s:FindStartLine(a:lnum, '^\s*\(if\|when\|elif\|of\)')
   endif
 
+  if pline =~ '=.*:\s*$' || pline =~ '=\s*$'
+    return plindent + &sw
+  endif
+
   if pline =~# ':\s*$'
     "return s:FindStartLine(plnum, '(^\s*\(if\|when\|else\|elif\|case\|of\|try\|except\|finally\)\>)\|\<do\>') + &sw
     return s:FindStartLine(plnum, '^\s*\(if\|when\|else\|elif\|for\|while\|case\|of\|try\|except\|finally\)\>') + &sw
@@ -119,7 +123,7 @@ function! GetNimIndent(lnum)
   endif
 
   if pline =~# '\(type\|import\|const\|var\|let\)\s*$'
-    \ || pline =~# '=\s*\(object\|enum\|tuple\|concept\)'
+    \ || pline =~# '=\s*\(ref\|of\)*\s*\(|RootObj\|object\|enum\|tuple\|concept\)'
     return plindent + &sw
   endif
 
