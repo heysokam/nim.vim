@@ -151,6 +151,10 @@ if nim_highlight_builtins == 1
   syn match   nimKeyword "header:"
   syn match   nimKeyword "size:"
   syn keyword nimKeyword async await typeof align pure
+  " Nimscript
+  syn keyword nimNimscriptVar  author backend bin binDir description installDirs installExt installFiles license packageName requiresData skipDirs skipExt skipFiles srcDir version buildCPU buildOS
+  syn keyword nimNimscriptFunc withDir taskRequires task
+  syn keyword nimNimscriptFunc cp cmpic cpDir cpDir cppDefine delEnv dirExists exec exists existsEnv fileExists findExe getCurrentDir getEnv hint listDirs listFiles mkDir mvDir mvFile nimcacheDir paramCount paramStr patchFile projectDir projectName projectPath putEnv readAllFromStdin readLineFromStdin requires rmDir rmFile selfExe selfExec setCommand switch thisDir toDll toExe warning
   " Custom types
   syn keyword nimBuiltin i8 i16 i32 i64 u8 u16 u32 u64 f32 f64 Sz str cstr
   " MinC specials
@@ -196,32 +200,35 @@ if v:version >= 508 || !exists('did_nim_syn_inits')
   endif
 
   " The default methods for highlighting.  Can be overridden later
-  HiLink nimBrackets    Operator
-  HiLink nimKeyword     Keyword
-  HiLink nimFunction    Function
-  HiLink nimConditional Conditional
-  HiLink nimRepeat      Repeat
-  HiLink nimString      String
-  HiLink nimRawString   String
-  HiLink nimBoolean     Boolean
-  HiLink nimEscape      Special
-  " HiLink nimOperator    Operator
-  HiLink nimOperator    Repeat
-  HiLink nimPreCondit   PreCondit
-  HiLink nimComment     Comment
-  HiLink nimTodo        Todo
-  HiLink nimDecorator   Define
-  HiLink nimSpecialVar  Identifier
+  HiLink nimBrackets      Operator
+  HiLink nimKeyword       Keyword
+  HiLink nimFunction      Function
+  HiLink nimConditional   Conditional
+  HiLink nimRepeat        Repeat
+  HiLink nimString        String
+  HiLink nimRawString     String
+  HiLink nimBoolean       Boolean
+  HiLink nimEscape        Special
+  "HiLink nimOperator Operator
+  HiLink nimOperator      Repeat
+  HiLink nimPreCondit     PreCondit
+  HiLink nimComment       Comment
+  HiLink nimTodo          Todo
+  HiLink nimDecorator     Define
+  HiLink nimSpecialVar    Identifier
   " New
-  HiLink nimStatement   Statement
-  HiLink nimConstant    Constant
-  HiLink nimInclude     Include
-  HiLink nimStructure   Structure
-  HiLink nimMacro       Macro
-  HiLink nimCharacter   Character
-  HiLink nimFloat       Float
-  HiLink nimPragma      PreProc
-  HiLink nimType        Keyword
+  HiLink nimStatement     Statement
+  HiLink nimConstant      Constant
+  HiLink nimInclude       Include
+  HiLink nimStructure     Structure
+  HiLink nimMacro         Macro
+  HiLink nimCharacter     Character
+  HiLink nimFloat         Float
+  HiLink nimPragma        PreProc
+  HiLink nimType          Identifier
+  " Nimscript
+  HiLink nimNimscriptVar  Statement
+  HiLink nimNimscriptFunc Keyword
 
   if nim_highlight_numbers == 1
     HiLink nimNumber	Number
