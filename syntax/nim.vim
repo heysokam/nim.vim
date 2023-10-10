@@ -35,22 +35,16 @@ syn region nimBrackets       contained extend keepend matchgroup=Bold start=+\(\
 
 syn match   nimType          "\<[A-Z]\w*"
 
-syn keyword nimKeyword       addr and as asm atomic
-syn keyword nimKeyword       bind block
-syn keyword nimKeyword       case concept converter
-syn keyword nimKeyword       defer discard distinct div do
-syn keyword nimKeyword       elif else end enum except export
-syn keyword nimKeyword       finally from
-syn keyword nimKeyword       generic
-syn keyword nimKeyword       if import in interface is isnot iterator
-syn keyword nimKeyword       let
-syn keyword nimKeyword       mixin using mod
-syn keyword nimKeyword       not notin
-syn keyword nimKeyword       object out
+syn keyword nimKeyword       asm atomic
+syn keyword nimKeyword       block
+syn keyword nimKeyword       enum concept tuple distinct
+syn keyword nimKeyword       defer discard do
+syn keyword nimKeyword       end out interface
+syn keyword nimKeyword       from import export
+syn keyword nimKeyword       bind mixin using
+syn keyword nimKeyword       ref object
 syn keyword nimKeyword       proc func method macro template iterator converter nextgroup=nimFunction skipwhite
-syn keyword nimKeyword       raise ref
-syn keyword nimKeyword       shared
-syn keyword nimKeyword       try tuple
+syn keyword nimKeyword       raise try finally except
 syn keyword nimKeyword       vtref vtptr
 syn keyword nimKeyword       yield
 syn keyword nimKeyword       when with without for while
@@ -60,7 +54,7 @@ syn keyword nimBuiltin       nil result
 " Pink specific highlight
 syn keyword nimOperator      var type break continue return
 " Unsafe specific highlight
-syn keyword nimException     static include ptr cast equalmem equalMem alloc alloc0 realloc dealloc zeromem zeroMem copymem copyMem movemem moveMem
+syn keyword nimException     static include addr ptr cast equalmem equalMem alloc alloc0 realloc dealloc zeromem zeroMem copymem copyMem movemem moveMem
 
 syn match   nimFunction      "[a-zA-Z_][a-zA-Z0-9_]*\|`.*`" contained
 syn match   nimClass         "[a-zA-Z_][a-zA-Z0-9_]*\|`.*`" contained
