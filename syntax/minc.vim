@@ -141,9 +141,10 @@ if nim_highlight_builtins == 1
   syn keyword nimBuiltin newSeqWith newSeqOfCap newStringOfCap
   syn keyword nimKeyword define pragma threadvar compiletime
   syn keyword nimKeyword passC passL link importc importcpp importjs cdecl
-  syn match   nimKeyword "compile:"
-  syn match   nimKeyword "header:"
-  syn match   nimKeyword "size:"
+  syn match   nimKeyword "\<compile:"
+  syn match   nimKeyword "\<header:"
+  syn match   nimKeyword "\<size:"
+  syn match   nimKeyword "\<emit:"
   syn keyword nimKeyword async await typeof align pure
   " Nimscript
   syn keyword nimNimscriptVar  author backend bin binDir description installDirs installExt installFiles license packageName requiresData skipDirs skipExt skipFiles srcDir version buildCPU buildOS
