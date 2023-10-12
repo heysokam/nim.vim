@@ -167,8 +167,8 @@ if nim_highlight_exceptions == 1
   syn keyword nimBuiltin   LibraryError ResourceExhaustedError
   syn keyword nimBuiltin   Exception CatchableError IOError EOFError OSError KeyError ValueError
   " Any User error possible
-  syn match   nimException '[A-Z]\w*Error\>'
-  syn match   nimException '[A-Z]\w*Defect\>'
+  syn match   nimException '\<[A-Z]\w*Error\>'
+  syn match   nimException '\<[A-Z]\w*Defect\>'
 endif
 
 if nim_highlight_space_errors == 1
