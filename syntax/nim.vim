@@ -151,10 +151,10 @@ if nim_highlight_builtins == 1
   syn keyword nimNimscriptFunc withDir taskRequires task
   syn keyword nimNimscriptFunc cp cmpic cpDir cpDir cppDefine delEnv dirExists exec exists existsEnv fileExists findExe getCurrentDir getEnv hint listDirs listFiles mkDir mvDir mvFile nimcacheDir paramCount paramStr patchFile projectDir projectName projectPath putEnv readAllFromStdin readLineFromStdin requires rmDir rmFile selfExe selfExec setCommand switch thisDir toDll toExe warning
   " Custom types
-  syn keyword nimBuiltin i8 i16 i32 i64 u8 u16 u32 u64 f32 f64 Sz str cstr
+  syn keyword nimBuiltin i8 i16 i32 i64 u8 u16 u32 u64 f32 f64 uP Sz str cstr
   " MinC specials
   syn keyword nimKeyword   comptime namespace stub readonly noreturn
-  syn keyword nimException calloc malloc free resize
+  syn keyword nimException calloc malloc free resize memset memcpy
 endif
 
 if nim_highlight_exceptions == 1
