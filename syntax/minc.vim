@@ -154,7 +154,7 @@ if nim_highlight_builtins == 1
   syn keyword nimBuiltin i8 i16 i32 i64 u8 u16 u32 u64 f32 f64 uP Sz str cstr
   " MinC specials
   syn keyword nimKeyword   comptime namespace stub readonly noreturn
-  syn keyword nimException calloc malloc free resize memset memcpy
+  syn keyword nimException calloc malloc free resize memset memcpy memmove
 endif
 
 if nim_highlight_exceptions == 1
