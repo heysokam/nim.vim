@@ -55,6 +55,7 @@ syn keyword nimBuiltin       nil result
 syn keyword nimOperator      var type break continue return
 " Unsafe specific highlight
 syn keyword nimException     static include addr ptr cast equalmem equalMem alloc alloc0 realloc dealloc zeromem zeroMem copymem copyMem movemem moveMem
+syn keyword nimException     bycopy
 
 syn match   nimFunction      "[a-zA-Z_][a-zA-Z0-9_]*\|`.*`" contained
 syn match   nimClass         "[a-zA-Z_][a-zA-Z0-9_]*\|`.*`" contained
