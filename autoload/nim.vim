@@ -13,7 +13,7 @@ if has('pythonx')
   exe 'pyxfile ' . fnameescape(s:plugin_path) . '/nim_vim.py'
 endif
 
-fun! nim#init() abort
+fun! Nim_init() abort
   let cmd = printf('nim --dump.format:json --verbosity:0 dump %s', s:CurrentNimFile())
   let raw_dumpdata = system(cmd)
   if !v:shell_error && expand('%:e') ==# 'nim'

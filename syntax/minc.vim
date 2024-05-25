@@ -1,3 +1,7 @@
+" Remember: Uncomment ...
+"runtime nim.vim
+" And only modify specifics for minc
+"________________________________________________
 " For version 5.x: Clear all syntax items
 " For version 6.x: Quit when a syntax file was already loaded
 if v:version < 600
