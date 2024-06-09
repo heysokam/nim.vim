@@ -141,7 +141,7 @@ if nim_highlight_builtins == 1
   syn keyword nimBuiltin byte any auto csize_t cstringArray
   syn keyword nimBuiltin newSeqWith newSeqOfCap newStringOfCap
   syn keyword nimKeyword define pragma threadvar compiletime
-  syn keyword nimKeyword passC passL link importc importcpp importjs cdecl
+  syn keyword nimKeyword passC passL link importc importcpp importjs cdecl inline
   syn match   nimKeyword "\<compile:"
   syn match   nimKeyword "\<header:"
   syn match   nimKeyword "\<size:"
