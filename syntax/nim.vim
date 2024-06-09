@@ -38,7 +38,7 @@ syn match   nimType          "\<[A-Z]\w*"
 syn keyword nimKeyword       asm atomic
 syn keyword nimKeyword       block
 syn keyword nimKeyword       enum concept tuple distinct
-syn keyword nimKeyword       defer discard do
+syn keyword nimKeyword       defer do discard discardable
 syn keyword nimKeyword       end out interface
 syn keyword nimKeyword       from import export
 syn keyword nimKeyword       bind mixin using
