@@ -44,7 +44,7 @@ syn keyword nimKeyword       block
 syn keyword nimKeyword       enum concept tuple distinct
 syn keyword nimKeyword       defer do discard discardable
 syn keyword nimKeyword       end out interface
-syn keyword nimKeyword       from import export
+syn keyword nimKeyword       from import export module
 syn keyword nimKeyword       bind mixin using
 syn keyword nimKeyword       ref object
 syn keyword nimKeyword       proc func method macro template iterator converter nextgroup=nimFunction skipwhite
