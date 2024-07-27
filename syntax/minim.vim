@@ -152,7 +152,7 @@ if nim_highlight_builtins == 1
   syn match   nimKeyword "\<emit:"
   syn keyword nimKeyword async await typeof align pure
   " Nimscript
-  syn keyword nimNimscriptVar  author backend bin binDir description installDirs installExt installFiles license packageName requiresData skipDirs skipExt skipFiles srcDir version buildCPU buildOS
+  syn keyword nimNimscriptVar  author backend bin binDir description installDirs installExt installFiles license packageName name requiresData skipDirs skipExt skipFiles srcDir version buildCPU buildOS
   syn keyword nimNimscriptFunc withDir taskRequires task
   syn keyword nimNimscriptFunc cp cmpic cpDir cpDir cppDefine delEnv dirExists exec exists existsEnv fileExists findExe getCurrentDir getEnv hint listDirs listFiles mkDir mvDir mvFile nimcacheDir paramCount paramStr patchFile projectDir projectName projectPath putEnv readAllFromStdin readLineFromStdin requires rmDir rmFile selfExe selfExec setCommand switch thisDir toDll toExe warning
   " Custom types
