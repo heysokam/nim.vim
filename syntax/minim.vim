@@ -56,7 +56,7 @@ syn keyword nimKeyword       let const
 " Orange specific highlight
 syn keyword nimBuiltin       nil result
 " Pink specific highlight
-syn keyword nimOperator      var type break continue return
+syn keyword nimOperator      var mut type break continue return
 " Unsafe specific highlight
 syn keyword nimException     static include addr ptr cast equalmem equalMem alloc alloc0 realloc dealloc zeromem zeroMem copymem copyMem movemem moveMem
 syn keyword nimException     bycopy
